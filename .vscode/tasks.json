@@ -1,0 +1,17 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "replace-env-development",
+      "command": "./scripts/replace_env.sh",
+      "args": ["dev"],
+      "type": "shell"
+    },
+    {
+      "label": "replace-env-production",
+      "command": "./scripts/replace_env.sh",
+      "args": ["prod"],
+      "type": "shell"
+    }
+  ]
+}

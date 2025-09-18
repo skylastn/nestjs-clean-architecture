@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node-terminal",
+            "name": "Run Dev",
+            "request": "launch",
+            "command": "npm run start:dev",
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "replace-env-development",
+            "env": {
+                "PORT": "3000"  // Menetapkan port 3000 untuk development
+            }
+        },
+        {
+            "type": "node-terminal",
+            "name": "Run Prod",
+            "request": "launch",
+            "command": "npm run start:prod",
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "replace-env-production",
+            "env": {
+                "PORT": "3001"  // Menetapkan port 3001 untuk production
+            }
+        }
+    ]
+}

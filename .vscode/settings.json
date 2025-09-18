@@ -1,0 +1,5 @@
+{
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "makefile.configureOnOpen": false
+}
