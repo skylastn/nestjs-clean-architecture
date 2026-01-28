@@ -17,3 +17,6 @@ migrate:
 # Revert last migration
 migrate-revert:
 	npm run typeorm -- migration:revert -d $(DATA_SOURCE)
+
+deploy:
+	docker-compose down && docker-compose build && docker-compose up -d
