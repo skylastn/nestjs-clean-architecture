@@ -18,7 +18,10 @@
     "test:cov": "node -r dotenv/config ./node_modules/.bin/jest --coverage",
     "test:debug": "node -r dotenv/config node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "node -r dotenv/config ./node_modules/.bin/jest --config ./test/jest-e2e.json",
-    "typeorm": "node -r dotenv/config ./node_modules/.bin/typeorm-ts-node-commonjs"
+    "typeorm": "npx typeorm-ts-node-commonjs",
+    "seed": "ts-node -r tsconfig-paths/register src/core/seeder/run_seeder.ts",
+    "migrate": "npm run typeorm -- migration:run -d src/core/data_source.ts",
+    "migrate:revert": "npm run typeorm -- migration:revert -d src/core/data_source.ts"
   },
   "dependencies": {
     "@nestjs/axios": "^4.0.1",

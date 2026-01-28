@@ -8,21 +8,19 @@ services:
     container_name: be-sample-${ENV}
     command: >
       sh -c "
-        rm -rf node_modules package-lock.json &&
-        echo '📦 Installing Library...' && npm install &&
-        echo '🏗️ Building app...' && npm run build &&
-        echo '📦 Migrate Database...' && npm run migrate &&
-        echo '📦 Seeding Database...' && npm run seed &&
-        echo '🚀 Starting app...' && npm run start:prod
+        npm run migrate &&
+        npm run seed &&
+        npm run start:prod
       "
     env_file:
       - .env
     ports:
       - '${DOCKER_PORT}:3000'
     volumes:
-      - .:/app
+      - ./public:/app/public
     networks:
       - be-sample-network
+    restart: always
 
 networks:
   be-sample-network:
