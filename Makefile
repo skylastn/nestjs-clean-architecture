@@ -20,3 +20,7 @@ migrate-revert:
 
 deploy:
 	docker-compose down && docker-compose build && docker-compose up -d
+
+freshInstall:
+	rm -rf node_modules package-lock.json
+	npm install
