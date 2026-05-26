@@ -7,14 +7,14 @@ import {
 
 export abstract class DefaultEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @CreateDateColumn({ type: 'timestamp', name: 'created_at' })
-  createdAt: Date;
+  createdAt!: Date;
 
   @UpdateDateColumn({ type: 'timestamp', name: 'updated_at' })
-  updatedAt: Date;
+  updatedAt!: Date;
 
   @UpdateDateColumn({ type: 'timestamp', name: 'deleted_at', nullable: true })
-  deletedAt: Date;
+  deletedAt!: Date;
 }
