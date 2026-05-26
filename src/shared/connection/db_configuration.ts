@@ -3,8 +3,6 @@ import { UserEntity } from '../../feature/auth/domain/model/entities/user_entity
 import path from 'path';
 
 export function dbConfiguration(): DataSourceOptions {
-  const isProd = process.env.NODE_ENV === 'production';
-
   return {
     type: 'mysql',
     host: process.env.DATABASE_HOST || 'localhost',
@@ -13,11 +11,7 @@ export function dbConfiguration(): DataSourceOptions {
     password: process.env.DATABASE_PASSWORD || '',
     database: process.env.DATABASE_NAME || 'test',
     entities: [UserEntity],
-    migrations: [
-      isProd
-        ? path.join(__dirname, '../dist/migrations/*.{js}')   // production: .js di dist
-        : path.join(__dirname, '../../core/migrations/*.{ts,js}'), // development: .ts + .js
-    ],
+    migrations: [path.join(__dirname, '../../core/migrations/*.{ts,js}')],
     synchronize: false,
   };
 }
