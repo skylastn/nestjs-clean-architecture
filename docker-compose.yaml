@@ -8,9 +8,9 @@ services:
     container_name: be-sample-${ENV}
     command: >
       sh -c "
-        npm run migrate &&
-        npm run seed &&
-        npm run start:prod
+        bun run migrate &&
+        bun run seed &&
+        bun run start:prod
       "
     env_file:
       - .env

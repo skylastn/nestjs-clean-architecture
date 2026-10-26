@@ -7,20 +7,20 @@ migration:
 	@if [ -z "$(name)" ]; then \
 		echo "Usage: make migration name=user_table"; \
 	else \
-		npm run typeorm -- migration:generate $(MIGRATION_DIR)/$(name) -d $(DATA_SOURCE); \
+		bun run typeorm -- migration:generate $(MIGRATION_DIR)/$(name) -d $(DATA_SOURCE); \
 	fi
 
 # Run all migrations
 migrate:
-	npm run typeorm -- migration:run -d $(DATA_SOURCE)
+	bun run typeorm -- migration:run -d $(DATA_SOURCE)
 
 # Revert last migration
 migrate-revert:
-	npm run typeorm -- migration:revert -d $(DATA_SOURCE)
+	bun run typeorm -- migration:revert -d $(DATA_SOURCE)
 
 deploy:
 	docker-compose down && docker-compose build && docker-compose up -d
 
 freshInstall:
-	rm -rf node_modules package-lock.json
-	npm install
+	rm -rf node_modules bun.lock
+	bun install
